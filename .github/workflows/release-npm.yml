@@ -14,9 +14,6 @@ jobs:
     name: Publish @helixsdk/core
     runs-on: ubuntu-latest
     environment: release
-    defaults:
-      run:
-        working-directory: packages/typescript
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -27,16 +24,18 @@ jobs:
           node-version: "22"
           registry-url: "https://registry.npmjs.org"
       - run: bun install --frozen-lockfile
-      - run: bunx tsc -p tsconfig.json --noEmit
-      - run: bun run build
+      - run: bun run --filter '@helixsdk/core' typecheck
+      - run: bun run --filter '@helixsdk/core' build
       - name: Tag must match package version
         if: startsWith(github.ref, 'refs/tags/')
+        working-directory: packages/typescript
         run: |
           tag="${GITHUB_REF#refs/tags/typescript-v}"
           pkg=$(node -p "require('./package.json').version")
           echo "tag=$tag package=$pkg"
           [ "$tag" = "$pkg" ] || { echo "::error::tag $tag does not match package version $pkg"; exit 1; }
       - name: Publish
+        working-directory: packages/typescript
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

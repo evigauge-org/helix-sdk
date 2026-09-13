@@ -16,21 +16,19 @@ jobs:
   typescript:
     name: TypeScript
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: packages/typescript
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: "1.1.38"
+      # install from the workspace root: the root lockfile is the authoritative one
       - run: bun install --frozen-lockfile
       - name: Typecheck
-        run: bunx tsc -p tsconfig.json --noEmit
+        run: bun run --filter '@helixsdk/core' typecheck
       - name: Build
-        run: bun run build
+        run: bun run --filter '@helixsdk/core' build
       - name: Assert build output exists
-        run: test -f dist/index.js && test -f dist/index.d.ts
+        run: test -f packages/typescript/dist/index.js && test -f packages/typescript/dist/index.d.ts
 
   examples:
     name: Examples typecheck
@@ -40,7 +38,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: "1.1.38"
-      - run: bun install
+      - run: bun install --frozen-lockfile
       - name: Typecheck examples against the local SDK source
         run: bun run --filter '@helixsdk/examples' typecheck
 
