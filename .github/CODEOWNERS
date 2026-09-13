@@ -1,16 +1,25 @@
-# Default owners for everything in this repository.
-*                       @evigauge-org/maintainers
+# Code owners.
+#
+# NOTE: evigauge-org is a personal account, not a GitHub Organization, so team
+# references (@evigauge-org/maintainers) are NOT valid here — GitHub silently
+# ignores them and assigns nobody. Individual accounts only.
+#
+# If this repository later moves to a real Organization, replace the individual
+# handles below with teams (maintainers / legal / protocol / security).
 
-# Legal and governance documents require a maintainer with authority to change them.
-/LICENSE                @evigauge-org/legal
-/NOTICE                 @evigauge-org/legal
-/CLA.md                 @evigauge-org/legal
-/CODE_OF_CONDUCT.md     @evigauge-org/legal
-/SECURITY.md            @evigauge-org/legal
+# Default owner for everything.
+*                       @evigauge-org
+
+# Legal and governance documents.
+/LICENSE                @evigauge-org
+/NOTICE                 @evigauge-org
+/CLA.md                 @evigauge-org
+/CODE_OF_CONDUCT.md     @evigauge-org
+/SECURITY.md            @evigauge-org
 
 # Release and CLA automation.
-/.github/workflows/     @evigauge-org/maintainers
+/.github/               @evigauge-org
 
 # Wire-protocol constants. Changing these breaks deployed clients.
-/packages/typescript/src/constants.ts    @evigauge-org/protocol
-/packages/python/helix_sdk/constants.py  @evigauge-org/protocol
+/packages/typescript/src/constants.ts    @evigauge-org
+/packages/python/helix_sdk/constants.py  @evigauge-org
