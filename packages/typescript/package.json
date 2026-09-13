@@ -1,0 +1,44 @@
+{
+  "name": "@helixsdk/core",
+  "version": "0.1.0-alpha.0",
+  "description": "TypeScript client SDK for the Agent Execution Protocol (AEP), the wire protocol behind Helix.",
+  "license": "Apache-2.0",
+  "author": "Evigauge Technologies Pvt. Ltd. <info@evigauge.com>",
+  "homepage": "https://github.com/evigauge-org/helix-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evigauge-org/helix-sdk.git",
+    "directory": "packages/typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/evigauge-org/helix-sdk/issues"
+  },
+  "keywords": ["helix", "aep", "agent", "agent-execution-protocol", "sdk", "client"],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "src", "LICENSE", "README.md"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "bun@1.1.38",
+  "scripts": {
+    "generate": "bun run scripts/generate-types.ts",
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "json-schema-to-typescript": "^15.0.2",
+    "@types/bun": "^1.1.13"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

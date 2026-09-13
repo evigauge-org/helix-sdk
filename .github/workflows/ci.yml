@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  typescript:
+    name: TypeScript
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/typescript
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.1.38"
+      - run: bun install --frozen-lockfile
+      - name: Typecheck
+        run: bunx tsc -p tsconfig.json --noEmit
+      - name: Build
+        run: bun run build
+      - name: Assert build output exists
+        run: test -f dist/index.js && test -f dist/index.d.ts
+
+  python:
+    name: Python
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/python
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: uv sync --extra dev
+      - name: Lint
+        run: uv run ruff check .
+      - name: Import check
+        run: uv run python -c "from helix_sdk import HelixClient, PROTOCOL_VERSION; print(PROTOCOL_VERSION)"
+      - name: Build distribution
+        run: uv build
+
+  protocol-constants:
+    name: Protocol constants unchanged
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: TypeScript and Python must agree on the wire protocol
+        run: |
+          ts=$(grep -oE 'PROTOCOL_VERSION = "[^"]+"' packages/typescript/src/constants.ts | head -1 | cut -d'"' -f2)
+          py=$(grep -oE 'PROTOCOL_VERSION = "[^"]+"' packages/python/helix_sdk/constants.py | head -1 | cut -d'"' -f2)
+          echo "typescript=$ts python=$py"
+          if [ -z "$ts" ] || [ -z "$py" ]; then
+            echo "::error::could not read PROTOCOL_VERSION from one of the SDKs"
+            exit 1
+          fi
+          if [ "$ts" != "$py" ]; then
+            echo "::error::PROTOCOL_VERSION drift: typescript=$ts python=$py"
+            exit 1
+          fi

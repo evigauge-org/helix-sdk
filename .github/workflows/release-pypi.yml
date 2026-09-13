@@ -1,0 +1,36 @@
+name: Release — PyPI
+
+on:
+  push:
+    tags: ["python-v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write   # PyPI Trusted Publishing — no long-lived token needed
+
+jobs:
+  publish:
+    name: Publish helixsdk
+    runs-on: ubuntu-latest
+    environment: release
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build
+        working-directory: packages/python
+        run: uv build
+      - name: Tag must match project version
+        if: startsWith(github.ref, 'refs/tags/')
+        working-directory: packages/python
+        run: |
+          tag="${GITHUB_REF#refs/tags/python-v}"
+          proj=$(grep -m1 '^version = ' pyproject.toml | cut -d'"' -f2)
+          echo "tag=$tag project=$proj"
+          [ "$tag" = "$proj" ] || { echo "::error::tag $tag does not match project version $proj"; exit 1; }
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: packages/python/dist

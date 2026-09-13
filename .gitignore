@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# build output
+dist/
+build/
+*.tsbuildinfo
+
+# generated protocol bindings (produced by `generate`, never committed)
+packages/typescript/src/types/generated.ts
+packages/python/helix_sdk/models/generated.py
+
+# tooling caches
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# environment
+.env
+.env.*
+!.env.example
+
+# editors / OS
+.DS_Store
+*.log
+.idea/
+.vscode/
