@@ -70,6 +70,14 @@ Generated files are not committed. Both are gitignored and rebuilt from the
 protocol schema, so never hand-edit them — your edit will be silently
 overwritten.
 
+## Examples
+
+`examples/` holds runnable smoke tests that double as documentation. They
+import by package name, and the Bun workspace resolves that to the local
+source — so an example always exercises the code in your branch, not a
+published release. If you change a public API, update the example that uses
+it in the same pull request.
+
 ## Pull requests
 
 1. Branch off `main`.

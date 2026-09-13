@@ -1,0 +1,11 @@
+{
+  "name": "helix-sdk-workspace",
+  "private": true,
+  "description": "Workspace root for the Helix SDK. Not published.",
+  "workspaces": ["packages/typescript", "examples"],
+  "packageManager": "bun@1.1.38",
+  "scripts": {
+    "build": "bun run --filter '@helixsdk/core' build",
+    "typecheck": "bun run --filter '*' typecheck"
+  }
+}

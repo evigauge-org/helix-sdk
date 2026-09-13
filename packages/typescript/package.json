@@ -13,7 +13,14 @@
   "bugs": {
     "url": "https://github.com/evigauge-org/helix-sdk/issues"
   },
-  "keywords": ["helix", "aep", "agent", "agent-execution-protocol", "sdk", "client"],
+  "keywords": [
+    "helix",
+    "aep",
+    "agent",
+    "agent-execution-protocol",
+    "sdk",
+    "client"
+  ],
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -23,7 +30,12 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist", "src", "LICENSE", "README.md"],
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -31,7 +43,8 @@
   "scripts": {
     "generate": "bun run scripts/generate-types.ts",
     "build": "tsc -p tsconfig.json",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {
     "typescript": "^5.5.4",

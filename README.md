@@ -90,6 +90,13 @@ Both clients expose the same seven services off the root object:
 | `provider` | Bring-your-own LLM provider configuration |
 | `subject` | GDPR subject export and erasure |
 
+## Examples
+
+Runnable smoke tests live in [`examples/`](examples) — the protocol handshake,
+OAuth with PKCE, external MCP servers, bring-your-own-LLM providers and GDPR
+subject export and erasure. They talk to a live runtime and are not read-only,
+so point them at a development instance. See [examples/README.md](examples/README.md).
+
 ## Protocol compatibility
 
 The SDKs pin a protocol version and negotiate capabilities at `initialize`.

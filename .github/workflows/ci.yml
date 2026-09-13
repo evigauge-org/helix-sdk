@@ -32,6 +32,18 @@ jobs:
       - name: Assert build output exists
         run: test -f dist/index.js && test -f dist/index.d.ts
 
+  examples:
+    name: Examples typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.1.38"
+      - run: bun install
+      - name: Typecheck examples against the local SDK source
+        run: bun run --filter '@helixsdk/examples' typecheck
+
   python:
     name: Python
     runs-on: ubuntu-latest
