@@ -7,7 +7,7 @@ resolution-markers = [
 ]
 
 [[package]]
-name = "helixsdk"
+name = "helix-protocol"
 version = "0.1.0a0"
 source = { editable = "." }
 dependencies = [

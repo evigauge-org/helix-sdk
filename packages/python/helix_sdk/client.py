@@ -62,7 +62,7 @@ class HelixClient:
         result = await self._rpc.call(
             "initialize",
             {
-                "client_info": client_info or {"name": "helixsdk", "version": "0.1.0a0"},
+                "client_info": client_info or {"name": "helix-protocol", "version": "0.1.0a0"},
                 "requested_versions": requested_versions,
                 "requested_capabilities": requested_capabilities,
             },

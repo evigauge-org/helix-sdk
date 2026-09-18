@@ -5,12 +5,12 @@ behind [Helix](https://evigauge.com) by Evigauge Technologies Pvt. Ltd.
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![npm](https://img.shields.io/npm/v/@helixsdk/core.svg)](https://www.npmjs.com/package/@helixsdk/core)
-[![PyPI](https://img.shields.io/pypi/v/helixsdk.svg)](https://pypi.org/project/helixsdk/)
+[![PyPI](https://img.shields.io/pypi/v/helix-protocol.svg)](https://pypi.org/project/helix-protocol/)
 
 | Language | Package | Source |
 |---|---|---|
 | TypeScript | [`@helixsdk/core`](https://www.npmjs.com/package/@helixsdk/core) | [`packages/typescript`](packages/typescript) |
-| Python | [`helixsdk`](https://pypi.org/project/helixsdk/) | [`packages/python`](packages/python) |
+| Python | [`helix-protocol`](https://pypi.org/project/helix-protocol/) | [`packages/python`](packages/python) |
 
 Both are pure clients — no server, no UI, no framework glue. They speak the
 `aep-2026-04-24` wire protocol to any conforming runtime, and they are kept
@@ -21,7 +21,7 @@ the other.
 
 ```bash
 npm install @helixsdk/core     # or: bun add @helixsdk/core
-pip install helixsdk           # or: uv add helixsdk
+pip install helix-protocol     # or: uv add helix-protocol
 ```
 
 ## Usage
@@ -73,8 +73,10 @@ asyncio.run(main())
 ```
 
 Note the Python **import** name is `helix_sdk` while the **distribution** name
-is `helixsdk`. That is deliberate and normal — the two namespaces are separate
-on PyPI.
+is `helix-protocol`. PyPI refuses `helixsdk` because an unrelated `helix-sdk`
+project already exists and PyPI treats names as colliding once separators are
+stripped. Distribution and import names are separate namespaces, so this
+mismatch is normal — `beautifulsoup4` installs as `bs4`.
 
 ## Services
 

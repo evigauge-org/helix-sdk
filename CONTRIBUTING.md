@@ -22,7 +22,7 @@ behind Helix:
 | Path | Package | Registry |
 |---|---|---|
 | `packages/typescript` | `@helixsdk/core` | npm |
-| `packages/python` | `helixsdk` | PyPI |
+| `packages/python` | `helix-protocol` | PyPI |
 
 Both are **pure clients**. No server, no UI, no framework integrations. A
 change that adds a framework adapter or a server component belongs somewhere

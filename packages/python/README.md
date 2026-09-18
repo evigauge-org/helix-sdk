@@ -1,4 +1,4 @@
-# helixsdk
+# helix-protocol
 
 Python client SDK for the **Agent Execution Protocol** (AEP).
 
@@ -7,9 +7,9 @@ This package speaks the `aep-2026-04-24` wire protocol to any conforming runtime
 ## Install
 
 ```bash
-uv add helixsdk
+uv add helix-protocol
 # or
-pip install helixsdk
+pip install helix-protocol
 ```
 
 ## Usage

@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "helixsdk"
+name = "helix-protocol"
 version = "0.1.0a0"
 description = "Python client SDK for the Agent Execution Protocol (AEP), the wire protocol behind Helix."
 readme = "README.md"
