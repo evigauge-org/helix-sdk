@@ -51,8 +51,26 @@ jobs:
       # Once the first version is live, configure the trusted publisher at
       # npmjs.com (org evigauge-org, repo helix-sdk, workflow release-npm.yml,
       # environment release), then DELETE the NPM_TOKEN secret and the token.
+      # A prerelease MUST carry an explicit dist-tag: npm refuses to publish one
+      # without --tag so it cannot silently become `latest`. Derive the tag from
+      # the version rather than hardcoding it, so a stable release publishes to
+      # `latest` and 0.1.0-alpha.0 / -beta.1 / -rc.2 go to alpha / beta / rc.
+      - name: Determine dist-tag
+        id: disttag
+        working-directory: packages/typescript
+        run: |
+          v=$(node -p "require('./package.json').version")
+          if [[ "$v" == *-* ]]; then
+            pre="${v#*-}"          # 0.1.0-alpha.0 -> alpha.0
+            tag="${pre%%.*}"       # alpha.0       -> alpha
+          else
+            tag="latest"
+          fi
+          echo "version=$v  dist-tag=$tag"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
       - name: Publish
         working-directory: packages/typescript
-        run: npm publish --provenance --access public
+        run: npm publish --provenance --access public --tag "${{ steps.disttag.outputs.tag }}"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
