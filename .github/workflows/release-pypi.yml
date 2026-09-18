@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   publish:
-    name: Publish helixsdk
+    name: Publish helix-protocol
     runs-on: ubuntu-latest
     environment: release
     steps:
