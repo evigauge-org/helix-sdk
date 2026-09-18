@@ -39,6 +39,10 @@ jobs:
         with:
           bun-version: "1.1.38"
       - run: bun install --frozen-lockfile
+      # The examples import @helixsdk/core by package name, which resolves to
+      # packages/typescript/dist. That is gitignored, so it must be built here
+      # or the type declarations do not exist on a clean checkout.
+      - run: bun run --filter '@helixsdk/core' build
       - name: Typecheck examples against the local SDK source
         run: bun run --filter '@helixsdk/examples' typecheck
 
