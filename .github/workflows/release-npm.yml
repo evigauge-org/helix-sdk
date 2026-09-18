@@ -21,12 +21,16 @@ jobs:
           bun-version: "1.1.38"
       - uses: actions/setup-node@v4
         with:
-          # Trusted publishing needs Node >= 22.14.0 and npm >= 11.5.1.
-          node-version: "22.14"
+          # Node 24 ships npm 11.x, which already clears the >= 11.5.1 that
+          # trusted publishing needs. Do NOT drop this to 22.14: that is only
+          # the bare minimum for trusted publishing, and current npm releases
+          # require ^22.22.2 || ^24.15.0 || >=26.0.0, so `npm install -g
+          # npm@latest` fails there with EBADENGINE.
+          node-version: "24"
           registry-url: "https://registry.npmjs.org"
-      - name: Ensure npm is new enough for trusted publishing
+      - name: Show toolchain versions
         run: |
-          npm install -g npm@latest
+          node --version
           npm --version
       - run: bun install --frozen-lockfile
       - run: bun run --filter '@helixsdk/core' typecheck
