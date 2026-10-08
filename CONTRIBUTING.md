@@ -16,23 +16,41 @@ Read it properly before accepting — it is a real agreement, not a formality.
 
 ## Hacktoberfest
 
-This repository takes part in [Hacktoberfest](https://hacktoberfest.com/).
-Pull requests opened during October count once a maintainer merges or approves
-them, or labels them `hacktoberfest-accepted`.
+We welcome contributors during [Hacktoberfest](https://hacktoberfest.com/)
+and the rest of the year. Note that **from 2026, Hacktoberfest no longer
+counts pull requests toward its rewards.** The event now centres on events,
+livestreams and challenges about open-source AI and open-weight models. A
+pull request here won't earn you Hacktoberfest stickers, so contribute because
+the work is worth doing.
 
-- **Finding work.** Look for issues labelled
+What you do get:
+
+- **A Certificate of Contribution** for every merged pull request, recording
+  your name, the project, the pull request and the date (see section 5 of the
+  [CLA](CLA.md)).
+- **Real experience with AI-agent infrastructure.** This SDK is the client
+  side of a wire protocol for running AI agents, including external MCP
+  servers and bring-your-own LLM providers. That fits this year's
+  open-source AI theme if you want something to build on or write about for a
+  Hack Day or a DEV challenge.
+- **Review from maintainers** on every pull request, not just a merge button.
+
+How to take part:
+
+- **Find work.** Look for issues labelled
   [`good first issue`](https://github.com/evigauge-org/helix-sdk/labels/good%20first%20issue)
   or [`hacktoberfest`](https://github.com/evigauge-org/helix-sdk/labels/hacktoberfest).
-  Comment on an issue to claim it before you start, so two people don't do the
-  same work. If you've claimed something and haven't opened a pull request
-  within a week, we may hand it to someone else.
-- **Your own ideas are welcome too.** Open an issue first for anything beyond
-  a small fix, so we can agree on the approach before you write code.
-- **Quality over quantity.** Pull requests that only reformat whitespace, fix
-  one typo in a generated file, or otherwise exist just to add to a count get
-  labelled `spam` or `invalid`. Hacktoberfest disqualifies those.
-- **The CLA still applies.** Hacktoberfest doesn't change the requirement
-  below, so accept the CLA on your first pull request or it can't be merged.
+  Many of them (unit tests, documentation fixes) need no live runtime.
+- **Claim it first.** Comment on the issue before you start, so two people
+  don't do the same work. If you've claimed something and haven't opened a pull
+  request within a week, we may hand it to someone else.
+- **Bring your own ideas.** For anything beyond a small fix, open an issue or
+  a [discussion](https://github.com/evigauge-org/helix-sdk/discussions) first so
+  we can agree on the approach.
+- **Quality over quantity.** Pull requests that only reformat code, touch
+  generated files, or are machine-generated without being understood get
+  labelled `spam` and closed.
+- **Accept the CLA.** Without it, your first pull request can't be merged.
 
 ## What this repository is
 

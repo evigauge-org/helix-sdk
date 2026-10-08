@@ -112,8 +112,10 @@ renamed across releases without a protocol version bump.
 
 ## Contributing
 
-Contributions are welcome, and this repository takes part in
-**[Hacktoberfest](https://hacktoberfest.com/)**. Good places to start:
+Contributions are welcome, during
+**[Hacktoberfest](https://hacktoberfest.com/)** and the rest of the year.
+Every merged pull request earns you a Certificate of Contribution. Good places
+to start:
 
 - [`good first issue`](https://github.com/evigauge-org/helix-sdk/labels/good%20first%20issue):
   small, well-scoped tasks you can finish without knowing the protocol in depth
@@ -122,8 +124,9 @@ Contributions are welcome, and this repository takes part in
 - [`hacktoberfest`](https://github.com/evigauge-org/helix-sdk/labels/hacktoberfest):
   everything we have set aside for Hacktoberfest
 
-Unit tests, Python ports of the TypeScript examples, and documentation fixes
-are all useful and need no live runtime. Read [CONTRIBUTING.md](CONTRIBUTING.md) first, and
+Unit tests and documentation fixes need no live runtime. The CONTRIBUTING
+guide has the [Hacktoberfest notes](CONTRIBUTING.md#hacktoberfest), including
+how this year's event differs from earlier ones. Read [CONTRIBUTING.md](CONTRIBUTING.md) first, and
 note that you will need to accept the [Contributor Licence
 Agreement](CLA.md) before your first pull request can be merged. When it
 merges, you receive a Certificate of Contribution.
