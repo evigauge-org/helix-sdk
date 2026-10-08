@@ -11,7 +11,10 @@ license = "Apache-2.0"
 license-files = ["LICENSE"]
 requires-python = ">=3.11"
 authors = [{ name = "Evigauge Technologies Pvt. Ltd.", email = "info@evigauge.com" }]
-keywords = ["helix", "aep", "agent", "agent-execution-protocol", "sdk", "client"]
+keywords = [
+    "helix", "aep", "agent", "agent-execution-protocol", "sdk", "client",
+    "ai-agents", "agent-protocol", "llm", "mcp", "autonomous-agents", "api-client",
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",

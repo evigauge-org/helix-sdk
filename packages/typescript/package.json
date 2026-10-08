@@ -19,7 +19,13 @@
     "agent",
     "agent-execution-protocol",
     "sdk",
-    "client"
+    "client",
+    "ai-agents",
+    "agent-protocol",
+    "llm",
+    "mcp",
+    "autonomous-agents",
+    "api-client"
   ],
   "type": "module",
   "main": "./dist/index.js",

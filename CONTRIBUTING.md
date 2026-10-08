@@ -14,6 +14,26 @@ pull request is merged.
 
 Read it properly before accepting — it is a real agreement, not a formality.
 
+## Hacktoberfest
+
+This repository takes part in [Hacktoberfest](https://hacktoberfest.com/).
+Pull requests opened during October count once a maintainer merges or approves
+them, or labels them `hacktoberfest-accepted`.
+
+- **Finding work.** Look for issues labelled
+  [`good first issue`](https://github.com/evigauge-org/helix-sdk/labels/good%20first%20issue)
+  or [`hacktoberfest`](https://github.com/evigauge-org/helix-sdk/labels/hacktoberfest).
+  Comment on an issue to claim it before you start, so two people don't do the
+  same work. If you've claimed something and haven't opened a pull request
+  within a week, we may hand it to someone else.
+- **Your own ideas are welcome too.** Open an issue first for anything beyond
+  a small fix, so we can agree on the approach before you write code.
+- **Quality over quantity.** Pull requests that only reformat whitespace, fix
+  one typo in a generated file, or otherwise exist just to add to a count get
+  labelled `spam` or `invalid`. Hacktoberfest disqualifies those.
+- **The CLA still applies.** Hacktoberfest doesn't change the requirement
+  below, so accept the CLA on your first pull request or it can't be merged.
+
 ## What this repository is
 
 Two client SDKs for the Agent Execution Protocol (AEP), the wire protocol

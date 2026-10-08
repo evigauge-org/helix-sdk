@@ -6,6 +6,9 @@ behind [Helix](https://evigauge.com) by Evigauge Technologies Pvt. Ltd.
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![npm](https://img.shields.io/npm/v/@helixsdk/core.svg)](https://www.npmjs.com/package/@helixsdk/core)
 [![PyPI](https://img.shields.io/pypi/v/helix-protocol.svg)](https://pypi.org/project/helix-protocol/)
+[![Hacktoberfest](https://img.shields.io/badge/Hacktoberfest-2026-blueviolet.svg)](https://hacktoberfest.com/)
+[![Good first issues](https://img.shields.io/github/issues/evigauge-org/helix-sdk/good%20first%20issue.svg?label=good%20first%20issues&color=7057ff)](https://github.com/evigauge-org/helix-sdk/labels/good%20first%20issue)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 | Language | Package | Source |
 |---|---|---|
@@ -109,7 +112,18 @@ renamed across releases without a protocol version bump.
 
 ## Contributing
 
-Contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) first, and
+Contributions are welcome, and this repository takes part in
+**[Hacktoberfest](https://hacktoberfest.com/)**. Good places to start:
+
+- [`good first issue`](https://github.com/evigauge-org/helix-sdk/labels/good%20first%20issue):
+  small, well-scoped tasks you can finish without knowing the protocol in depth
+- [`help wanted`](https://github.com/evigauge-org/helix-sdk/labels/help%20wanted):
+  larger pieces we would like a hand with
+- [`hacktoberfest`](https://github.com/evigauge-org/helix-sdk/labels/hacktoberfest):
+  everything we have set aside for Hacktoberfest
+
+Unit tests, Python ports of the TypeScript examples, and documentation fixes
+are all useful and need no live runtime. Read [CONTRIBUTING.md](CONTRIBUTING.md) first, and
 note that you will need to accept the [Contributor Licence
 Agreement](CLA.md) before your first pull request can be merged. When it
 merges, you receive a Certificate of Contribution.
