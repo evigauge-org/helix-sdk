@@ -25,8 +25,8 @@ async def main():
             requested_capabilities={"compliance.gdpr": True, "messaging.peer": True},
         )
         agent = await client.agent.create(...)
-        run = await client.run.create(agent_id=agent.id, goal="...")
-        async for event in client.run.events(run.id):
+        run = await client.run.create(agent_id=agent["id"], goal="...")
+        async for event in client.run.events(run["id"]):
             print(event.type, event)
 
 asyncio.run(main())
